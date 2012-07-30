@@ -1,0 +1,53 @@
+Name: mic
+Summary: Image Creator for Linux Distributions
+Version: 0.13
+Release: mer1
+Group: System/Base
+License: GPLv2
+URL: http://www.tizen.org
+Description: |
+    The tool mic is used to create and manipulate images for Linux distributions.
+    It is composed of three subcommand\: create, convert, chroot. Subcommand create
+    is used to create images with different types; subcommand convert is used to
+    convert an image to a specified type; subcommand chroot is used to chroot into
+    an image.
+
+Sources:
+    - "%{name}-%{version}.tar.bz2"
+    - mic.conf
+Patches:
+- 0001-Add-486-to-permitted-arch-list.patch
+- 0002-If-du-fails-report-which-file-it-fails-on.patch
+- 0003-Don-t-cross-filesystem-boundaries-when-doing-du.patch
+- 0004-Add-mipsel-to-architecture-list-to-fix-MER-497.patch
+- 0005-don-t-ignore-mtab-on-copying-the-fs-image.patch
+- 0006-don-t-tamper-with-mtab-on-mic-chroot.patch
+
+Builder: python
+BuildArch: noarch
+SupportOtherDistros: yes
+
+Requires:
+    - util-linux
+    - coreutils
+    - python >= 2.5
+    - e2fsprogs
+    - dosfstools >= 2.11-8
+    - yum >= 3.2.24
+    - syslinux >= 3.82
+    - kpartx
+    - parted
+    - device-mapper
+    - /usr/bin/genisoimage
+    - cpio
+    - isomd5sum
+    - gzip
+    - bzip2
+    - python-urlgrabber
+    - squashfs-tools >= 4.0
+    - btrfs-progs
+    - python-m2crypto
+    - python-zypp >= 0.5.9.1
+    - psmisc
+PkgBR:
+    - python-devel

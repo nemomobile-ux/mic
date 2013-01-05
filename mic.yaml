@@ -1,6 +1,6 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
-Version: 0.13
+Version: 0.14
 Release: mer1
 Group: System/Base
 License: GPLv2
@@ -22,6 +22,13 @@ Patches:
 - 0004-Add-mipsel-to-architecture-list-to-fix-MER-497.patch
 - 0005-don-t-ignore-mtab-on-copying-the-fs-image.patch
 - 0006-don-t-tamper-with-mtab-on-mic-chroot.patch
+- 0007-Fix-zypp-backend.patch
+- 0008-Add-new-recording-file-.urls-which-contains-urls-of-.patch
+- 0009-Extract-uImage-files-from-boot-when-using-copy-kerne.patch
+- 0010-Refactor-common-creator-options-and-add-token-map-fe.patch
+- 0011-Fixup-for-usage-with-.netrc-enabled-urlgrabber-and-z.patch
+- 0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
+- 0013-Replace-upstream-packaging-with-mer-packaging.patch
 
 Builder: python
 BuildArch: noarch

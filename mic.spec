@@ -11,7 +11,7 @@ Name:       mic
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 Summary:    Image Creator for Linux Distributions
 Version:    0.14
-Release:    mer1
+Release:    mer2
 Group:      System/Base
 License:    GPLv2
 BuildArch:  noarch
@@ -32,6 +32,7 @@ Patch9:     0010-Refactor-common-creator-options-and-add-token-map-fe.patch
 Patch10:     0011-Fixup-for-usage-with-.netrc-enabled-urlgrabber-and-z.patch
 Patch11:     0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
 Patch12:     0013-Replace-upstream-packaging-with-mer-packaging.patch
+Patch13:     0014-Misc.-fixes.patch
 Requires:   util-linux
 Requires:   coreutils
 Requires:   python >= 2.5
@@ -94,6 +95,8 @@ an image.
 %patch11 -p1
 # 0013-Replace-upstream-packaging-with-mer-packaging.patch
 %patch12 -p1
+# 0014-Misc.-fixes.patch
+%patch13 -p1
 # >> setup
 # << setup
 

@@ -1,7 +1,7 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
 Version: 0.14
-Release: mer2
+Release: mer3
 Group: System/Base
 License: GPLv2
 URL: http://www.tizen.org
@@ -30,6 +30,8 @@ Patches:
 - 0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
 - 0013-Replace-upstream-packaging-with-mer-packaging.patch
 - 0014-Misc.-fixes.patch
+- 0015-tmp-permissions-should-be-1777.patch
+- 0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
 
 Builder: python
 BuildArch: noarch

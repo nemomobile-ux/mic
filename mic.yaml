@@ -1,7 +1,7 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
 Version: 0.14
-Release: mer3
+Release: mer4
 Group: System/Base
 License: GPLv2
 URL: http://www.tizen.org
@@ -32,6 +32,7 @@ Patches:
 - 0014-Misc.-fixes.patch
 - 0015-tmp-permissions-should-be-1777.patch
 - 0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
+- 0017-kill-leftover-processes-running-in-post-chroot.patch
 
 Builder: python
 BuildArch: noarch

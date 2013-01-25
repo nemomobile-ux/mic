@@ -11,7 +11,7 @@ Name:       mic
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 Summary:    Image Creator for Linux Distributions
 Version:    0.14
-Release:    mer3
+Release:    mer4
 Group:      System/Base
 License:    GPLv2
 BuildArch:  noarch
@@ -35,6 +35,7 @@ Patch12:     0013-Replace-upstream-packaging-with-mer-packaging.patch
 Patch13:     0014-Misc.-fixes.patch
 Patch14:     0015-tmp-permissions-should-be-1777.patch
 Patch15:     0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
+Patch16:     0017-kill-leftover-processes-running-in-post-chroot.patch
 Requires:   util-linux
 Requires:   coreutils
 Requires:   python >= 2.5
@@ -103,6 +104,8 @@ an image.
 %patch14 -p1
 # 0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
 %patch15 -p1
+# 0017-kill-leftover-processes-running-in-post-chroot.patch
+%patch16 -p1
 # >> setup
 # << setup
 

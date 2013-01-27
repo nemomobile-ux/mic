@@ -874,23 +874,32 @@ class LoopDevice(object):
 
     def create(self):
         if not self.created:
-            if not self.loopid:
-                self.loopid = self._genloopid()
-            self.device = "/dev/loop%d" % self.loopid
-            if os.path.exists(self.device):
-                if self._loseek(self.device):
-                    raise MountError("Device busy: %s" % self.device)
+            try: # fallback to old internal method on failure
+                rc, self.device = runner.runtool([self.losetupcmd, '-f'])
+                if rc != 0:
+                    raise MountError("Failed to run 'losetup -f'")
+                m = re.match("/dev/looop(.*)", self.device)
+                self.loopid = int(m.group(1))
+                self.created = True
+                print "losetup -f found %s" % self.device
+            except:
+                if not self.loopid:
+                    self.loopid = self._genloopid()
+                self.device = "/dev/loop%d" % self.loopid
+                if os.path.exists(self.device):
+                    if self._loseek(self.device):
+                        raise MountError("Device busy: %s" % self.device)
+                    else:
+                        self.created = True
+                        return
+                try:
+                    os.mknod(self.device,
+                             0664 | stat.S_IFBLK,
+                             os.makedev(7, self.loopid))
+                except:
+                    raise MountError("Failed to create device %s" % self.device)
                 else:
                     self.created = True
-                    return
-            try:
-                os.mknod(self.device,
-                         0664 | stat.S_IFBLK,
-                         os.makedev(7, self.loopid))
-            except:
-                raise MountError("Failed to create device %s" % self.device)
-            else:
-                self.created = True
 
     def close(self):
         if self.created:

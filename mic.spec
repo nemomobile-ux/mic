@@ -11,7 +11,7 @@ Name:       mic
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 Summary:    Image Creator for Linux Distributions
 Version:    0.14
-Release:    mer5
+Release:    mer7
 Group:      System/Base
 License:    GPLv2
 BuildArch:  noarch
@@ -19,24 +19,7 @@ URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.bz2
 Source1:    mic.conf
 Source100:  mic.yaml
-Patch0:     0001-Add-486-to-permitted-arch-list.patch
-Patch1:     0002-If-du-fails-report-which-file-it-fails-on.patch
-Patch2:     0003-Don-t-cross-filesystem-boundaries-when-doing-du.patch
-Patch3:     0004-Add-mipsel-to-architecture-list-to-fix-MER-497.patch
-Patch4:     0005-don-t-ignore-mtab-on-copying-the-fs-image.patch
-Patch5:     0006-don-t-tamper-with-mtab-on-mic-chroot.patch
-Patch6:     0007-Fix-zypp-backend.patch
-Patch7:     0008-Add-new-recording-file-.urls-which-contains-urls-of-.patch
-Patch8:     0009-Extract-uImage-files-from-boot-when-using-copy-kerne.patch
-Patch9:     0010-Refactor-common-creator-options-and-add-token-map-fe.patch
-Patch10:     0011-Fixup-for-usage-with-.netrc-enabled-urlgrabber-and-z.patch
-Patch11:     0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
-Patch12:     0013-Replace-upstream-packaging-with-mer-packaging.patch
-Patch13:     0014-Misc.-fixes.patch
-Patch14:     0015-tmp-permissions-should-be-1777.patch
-Patch15:     0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
-Patch16:     0017-kill-leftover-processes-running-in-post-chroot.patch
-Patch17:     0018-fix-liveusb-due-to-change-in-dc1873f32c0b4f8c8735b65.patch
+
 Requires:   util-linux
 Requires:   coreutils
 Requires:   python >= 2.5
@@ -71,44 +54,8 @@ an image.
 
 
 %prep
-%setup -q -n src
+%setup -q -n %{name}-%{version}
 
-# 0001-Add-486-to-permitted-arch-list.patch
-%patch0 -p1
-# 0002-If-du-fails-report-which-file-it-fails-on.patch
-%patch1 -p1
-# 0003-Don-t-cross-filesystem-boundaries-when-doing-du.patch
-%patch2 -p1
-# 0004-Add-mipsel-to-architecture-list-to-fix-MER-497.patch
-%patch3 -p1
-# 0005-don-t-ignore-mtab-on-copying-the-fs-image.patch
-%patch4 -p1
-# 0006-don-t-tamper-with-mtab-on-mic-chroot.patch
-%patch5 -p1
-# 0007-Fix-zypp-backend.patch
-%patch6 -p1
-# 0008-Add-new-recording-file-.urls-which-contains-urls-of-.patch
-%patch7 -p1
-# 0009-Extract-uImage-files-from-boot-when-using-copy-kerne.patch
-%patch8 -p1
-# 0010-Refactor-common-creator-options-and-add-token-map-fe.patch
-%patch9 -p1
-# 0011-Fixup-for-usage-with-.netrc-enabled-urlgrabber-and-z.patch
-%patch10 -p1
-# 0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
-%patch11 -p1
-# 0013-Replace-upstream-packaging-with-mer-packaging.patch
-%patch12 -p1
-# 0014-Misc.-fixes.patch
-%patch13 -p1
-# 0015-tmp-permissions-should-be-1777.patch
-%patch14 -p1
-# 0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
-%patch15 -p1
-# 0017-kill-leftover-processes-running-in-post-chroot.patch
-%patch16 -p1
-# 0018-fix-liveusb-due-to-change-in-dc1873f32c0b4f8c8735b65.patch
-%patch17 -p1
 # >> setup
 # << setup
 

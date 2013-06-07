@@ -1,7 +1,7 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
 Version: 0.14
-Release: mer5
+Release: mer6
 Group: System/Base
 License: GPLv2
 URL: http://www.tizen.org
@@ -15,25 +15,6 @@ Description: |
 Sources:
     - "%{name}-%{version}.tar.bz2"
     - mic.conf
-Patches:
-- 0001-Add-486-to-permitted-arch-list.patch
-- 0002-If-du-fails-report-which-file-it-fails-on.patch
-- 0003-Don-t-cross-filesystem-boundaries-when-doing-du.patch
-- 0004-Add-mipsel-to-architecture-list-to-fix-MER-497.patch
-- 0005-don-t-ignore-mtab-on-copying-the-fs-image.patch
-- 0006-don-t-tamper-with-mtab-on-mic-chroot.patch
-- 0007-Fix-zypp-backend.patch
-- 0008-Add-new-recording-file-.urls-which-contains-urls-of-.patch
-- 0009-Extract-uImage-files-from-boot-when-using-copy-kerne.patch
-- 0010-Refactor-common-creator-options-and-add-token-map-fe.patch
-- 0011-Fixup-for-usage-with-.netrc-enabled-urlgrabber-and-z.patch
-- 0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
-- 0013-Replace-upstream-packaging-with-mer-packaging.patch
-- 0014-Misc.-fixes.patch
-- 0015-tmp-permissions-should-be-1777.patch
-- 0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
-- 0017-kill-leftover-processes-running-in-post-chroot.patch
-- 0018-fix-liveusb-due-to-change-in-dc1873f32c0b4f8c8735b65.patch
 
 Builder: python
 BuildArch: noarch

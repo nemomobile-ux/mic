@@ -1,3 +1,6 @@
+* Fri Jun 07 2013 David Greaves <david@dgreaves.com> - 0.14-7
+ - Fix bug when mic crashes if there is no pattern in kickstart
+
 * Tue Apr 2 2013 Islam Amer <islam.amer@jollamobile.com> - 0.14-mer7
  - Add support for %pre scripts
  - Honor --erroronfail for scripts

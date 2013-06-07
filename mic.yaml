@@ -1,46 +1,68 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
 Version: 0.14
-Release: mer6
+Release: 7
 Group: System/Base
 License: GPLv2
 URL: http://www.tizen.org
 Description: |
-    The tool mic is used to create and manipulate images for Linux distributions.
-    It is composed of three subcommand\: create, convert, chroot. Subcommand create
-    is used to create images with different types; subcommand convert is used to
-    convert an image to a specified type; subcommand chroot is used to chroot into
-    an image.
-
+  The tool mic is used to create and manipulate images for Linux distributions.
+  It is composed of three subcommand\: create, convert, chroot. Subcommand create
+  is used to create images with different types; subcommand convert is used to
+  convert an image to a specified type; subcommand chroot is used to chroot into
+  an image.
 Sources:
-    - "%{name}-%{version}.tar.bz2"
-    - mic.conf
-
+  - '%{name}-%{version}.tar.bz2'
+  - mic.conf
 Builder: python
 BuildArch: noarch
-SupportOtherDistros: yes
-
+SupportOtherDistros: true
 Requires:
-    - util-linux
-    - coreutils
-    - python >= 2.5
-    - e2fsprogs
-    - dosfstools >= 2.11-8
-    - yum >= 3.2.24
-    - syslinux >= 3.82
-    - kpartx
-    - parted
-    - device-mapper
-    - /usr/bin/genisoimage
-    - cpio
-    - isomd5sum
-    - gzip
-    - bzip2
-    - python-urlgrabber
-    - squashfs-tools >= 4.0
-    - btrfs-progs
-    - python-m2crypto
-    - python-zypp >= 0.5.9.1
-    - psmisc
+  - util-linux
+  - coreutils
+  - python >= 2.5
+  - e2fsprogs
+  - dosfstools >= 2.11-8
+  - yum >= 3.2.24
+  - syslinux >= 3.82
+  - kpartx
+  - parted
+  - device-mapper
+  - /usr/bin/genisoimage
+  - cpio
+  - isomd5sum
+  - gzip
+  - bzip2
+  - python-urlgrabber
+  - squashfs-tools >= 4.0
+  - btrfs-progs
+  - python-m2crypto
+  - python-zypp >= 0.5.9.1
+  - psmisc
 PkgBR:
-    - python-devel
+  - python-devel
+Patches:
+  - 0001-Add-486-to-permitted-arch-list.patch
+  - 0002-If-du-fails-report-which-file-it-fails-on.patch
+  - 0003-Don-t-cross-filesystem-boundaries-when-doing-du.patch
+  - 0004-Add-mipsel-to-architecture-list-to-fix-MER-497.patch
+  - 0005-don-t-ignore-mtab-on-copying-the-fs-image.patch
+  - 0006-don-t-tamper-with-mtab-on-mic-chroot.patch
+  - 0007-Fix-zypp-backend.patch
+  - 0008-Add-new-recording-file-.urls-which-contains-urls-of-.patch
+  - 0009-Extract-uImage-files-from-boot-when-using-copy-kerne.patch
+  - 0010-Refactor-common-creator-options-and-add-token-map-fe.patch
+  - 0011-Fixup-for-usage-with-.netrc-enabled-urlgrabber-and-z.patch
+  - 0012-Workaround-for-repos-with-broken-repomd.xml-files.patch
+  - 0013-Replace-upstream-packaging-with-mer-packaging.patch
+  - 0014-Misc.-fixes.patch
+  - 0015-tmp-permissions-should-be-1777.patch
+  - 0016-use-bash-as-post-script-interpreter-to-get-job-contr.patch
+  - 0017-kill-leftover-processes-running-in-post-chroot.patch
+  - 0018-fix-liveusb-due-to-change-in-dc1873f32c0b4f8c8735b65.patch
+  - 0019-Fix-two-zypper-patterns-use-cases.patch
+  - 0020-Preserve-sparseness-of-files-on-packing.patch
+  - 0021-Generate-complete-fstab-for-loop-images.patch
+  - 0022-Add-support-for-pre-scripts-and-erroronfail.patch
+  - 0023-Fix-bug-when-mic-crashes-if-there-is-no-pattern-in-k.patch
+SetupOptions: -q -n src

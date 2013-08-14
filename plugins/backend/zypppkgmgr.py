@@ -284,18 +284,15 @@ class Zypp(BackendPlugin):
 
         todo = zypp.GetResolvablesToInsDel(self.Z.pool())
         installed_pkgs = todo._toInstall
-        groups = set()
+        groups_found = False
         for xitem in installed_pkgs:
             if zypp.isKindPattern(xitem):
                 item = self._castKind(xitem)
-                groups.add(item.name())
                 msger.debug("%s is going to be derefed" % item.name())
+                self.selectGroup(item.name())
+                groups_found = True
 
-        for grp in groups:
-            self.selectGroup(grp)
-        else:
-            return True # signal that no dereffing happened
-        return False # some groups were found
+        return groups_found
 
     def selectGroup(self, grp, include = ksparser.GROUP_DEFAULT):
         if not self.Z:

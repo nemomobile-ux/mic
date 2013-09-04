@@ -284,15 +284,15 @@ class Zypp(BackendPlugin):
 
         todo = zypp.GetResolvablesToInsDel(self.Z.pool())
         installed_pkgs = todo._toInstall
-        groups_found = False
+        groups = set()
         for xitem in installed_pkgs:
             if zypp.isKindPattern(xitem):
                 item = self._castKind(xitem)
                 msger.debug("%s is going to be derefed" % item.name())
+                groups.add(item.name())
                 self.selectGroup(item.name())
-                groups_found = True
 
-        return groups_found
+        return groups
 
     def selectGroup(self, grp, include = ksparser.GROUP_DEFAULT):
         if not self.Z:
@@ -902,8 +902,9 @@ class Zypp(BackendPlugin):
                        reverse=True)
 
         if items:
-            url = self.get_url(items[0])
-            proxies = self.get_proxies(items[0])
+            item = self._castKind(items[0])
+            url = self.get_url(item)
+            proxies = self.get_proxies(item)
             return (url, proxies)
 
         return (None, None)

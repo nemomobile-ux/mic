@@ -1,7 +1,7 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
 Version: 0.14
-Release: 7
+Release: 8
 Group: System/Base
 License: GPLv2
 URL: http://www.tizen.org
@@ -65,4 +65,11 @@ Patches:
   - 0021-Generate-complete-fstab-for-loop-images.patch
   - 0022-Add-support-for-pre-scripts-and-erroronfail.patch
   - 0023-Fix-bug-when-mic-crashes-if-there-is-no-pattern-in-k.patch
+  - 0024-Add-an-rpmmisc.checkRpmChecksum-to-verify-a-cached-r.patch
+  - 0025-Add-mipsel-support-to-mic.patch
+  - 0026-let-blkid-use-dev-null-as-cache-file.patch
+  - 0027-kickstart-pack-and-attachemnt-sections-and-btrfs-com.patch
+  - 0028-btrfs-use-subvolume-name-instead-of-id-in-fstab.patch
+  - 0029-a-couple-of-small-bugfixes-for-post-and-pack-hnadlin.patch
+  - 0030-Fix-tmp-dir-access-right-handling-for-pre-post-scrip.patch
 SetupOptions: -q -n src

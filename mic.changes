@@ -1,3 +1,12 @@
+* Sat Oct 26 2013 David Greaves <david@dgreaves.com> - 0.14-8
+- Fix /tmp dir access right handling for pre/post scripts
+- a couple of small bugfixes for %post and %pack hnadling
+- [btrfs] use subvolume name instead of id in fstab
+- kickstart %pack and %attachemnt sections and btrfs command [zypp] Simplify pattern unrolling in zypp backend
+- let blkid use /dev/null as cache file
+- Add mipsel support to mic
+- Add an rpmmisc.checkRpmChecksum() to verify a cached rpm hash against the repo hash
+
 * Fri Jun 07 2013 David Greaves <david@dgreaves.com> - 0.14-7
  - Fix bug when mic crashes if there is no pattern in kickstart
 

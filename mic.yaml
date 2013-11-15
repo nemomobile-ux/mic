@@ -1,7 +1,7 @@
 Name: mic
 Summary: Image Creator for Linux Distributions
 Version: 0.14
-Release: 8
+Release: 9
 Group: System/Base
 License: GPLv2
 URL: http://www.tizen.org
@@ -72,4 +72,6 @@ Patches:
   - 0028-btrfs-use-subvolume-name-instead-of-id-in-fstab.patch
   - 0029-a-couple-of-small-bugfixes-for-post-and-pack-hnadlin.patch
   - 0030-Fix-tmp-dir-access-right-handling-for-pre-post-scrip.patch
+  - 0031-zypp-don-t-crash-sorting-an-empty-list.patch
+  - 0032-Removed-rpm-from-src-as-it-conflicts-with-rpm-in-pac.patch
 SetupOptions: -q -n src

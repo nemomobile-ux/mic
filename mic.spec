@@ -11,7 +11,7 @@ Name:       mic
 %{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
 Summary:    Image Creator for Linux Distributions
 Version:    0.14
-Release:    8
+Release:    9
 Group:      System/Base
 License:    GPLv2
 BuildArch:  noarch
@@ -49,6 +49,8 @@ Patch26:     0027-kickstart-pack-and-attachemnt-sections-and-btrfs-com.patch
 Patch27:     0028-btrfs-use-subvolume-name-instead-of-id-in-fstab.patch
 Patch28:     0029-a-couple-of-small-bugfixes-for-post-and-pack-hnadlin.patch
 Patch29:     0030-Fix-tmp-dir-access-right-handling-for-pre-post-scrip.patch
+Patch30:     0031-zypp-don-t-crash-sorting-an-empty-list.patch
+Patch31:     0032-Removed-rpm-from-src-as-it-conflicts-with-rpm-in-pac.patch
 Requires:   util-linux
 Requires:   coreutils
 Requires:   python >= 2.5
@@ -143,6 +145,10 @@ an image.
 %patch28 -p1
 # 0030-Fix-tmp-dir-access-right-handling-for-pre-post-scrip.patch
 %patch29 -p1
+# 0031-zypp-don-t-crash-sorting-an-empty-list.patch
+%patch30 -p1
+# 0032-Removed-rpm-from-src-as-it-conflicts-with-rpm-in-pac.patch
+%patch31 -p1
 # >> setup
 # << setup
 

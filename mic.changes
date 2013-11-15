@@ -1,3 +1,8 @@
+* Fri Nov 15 2013 David Greaves <david@dgreaves.com> - 0.14-9
+- [zypp] don't crash sorting an empty list from Islam
+- Also had to remove rpm from src as it conflicts with rpm/
+  in packaging in newer git versions
+
 * Sat Oct 26 2013 David Greaves <david@dgreaves.com> - 0.14-8
 - Fix /tmp dir access right handling for pre/post scripts
 - a couple of small bugfixes for %post and %pack hnadling

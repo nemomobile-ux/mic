@@ -1,4 +1,4 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python2 -tt
 
 from mic.pluginbase import BackendPlugin
 class Zypp(BackendPlugin):

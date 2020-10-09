@@ -1,5 +1,5 @@
 
-#!/usr/bin/python -tt
+#!/usr/bin/python2 -tt
 #
 # Copyright (c) 2007 Red Hat  Inc.
 # Copyright (c) 2009, 2010, 2011 Intel, Inc.

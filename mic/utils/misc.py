@@ -1,4 +1,4 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python2 -tt
 #
 # Copyright (c) 2010, 2011 Intel Inc.
 # Copyright (c) 2012 Jolla Ltd.

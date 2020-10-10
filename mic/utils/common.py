@@ -1,4 +1,4 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python2 -tt
 #
 # Copyright (c) 2012 Jolla Ltd.
 # Contact: Islam Amer <islam.amer@jollamobile.com>

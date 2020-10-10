@@ -23,14 +23,14 @@ Requires:   cpio
 Requires:   gzip
 Requires:   bzip2
 Requires:   zip
-Requires:   gnu-tar
-Requires:   python2-urlgrabber
+Requires:   tar
 Requires:   squashfs-tools >= 4.0
 Requires:   btrfs-progs
-Requires:   python2-distro
-Requires:   python2-m2crypto
-Requires:   python2-zypp >= 0.5.9.1
-Requires:   rpm-python2
+#Requires:   python2-urlgrabber
+#Requires:   python3-distro
+#Requires:   python2-m2crypto
+#Requires:   python2-zypp >= 0.5.9.1
+#Requires:   rpm-python
 Requires:   psmisc
 BuildRequires:  python2-devel
 BuildRoot:  %{_tmppath}/%{name}-%{version}-build

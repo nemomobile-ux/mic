@@ -12,7 +12,7 @@ Source0:    %{name}-%{version}.tar.bz2
 Source1:    mic.conf
 Requires:   util-linux
 Requires:   coreutils
-Requires:   python >= 2.5
+Requires:   python2 >= 2.5
 Requires:   e2fsprogs
 Requires:   dosfstools >= 2.11-8
 Requires:   syslinux >= 3.82
@@ -24,15 +24,15 @@ Requires:   gzip
 Requires:   bzip2
 Requires:   zip
 Requires:   gnu-tar
-Requires:   python-urlgrabber
+Requires:   python2-urlgrabber
 Requires:   squashfs-tools >= 4.0
 Requires:   btrfs-progs
-Requires:   python-distro
-Requires:   python-m2crypto
-Requires:   python-zypp >= 0.5.9.1
-Requires:   rpm-python
+Requires:   python2-distro
+Requires:   python2-m2crypto
+Requires:   python2-zypp >= 0.5.9.1
+Requires:   rpm-python2
 Requires:   psmisc
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRoot:  %{_tmppath}/%{name}-%{version}-build
 
 %description
@@ -78,15 +78,15 @@ Requires:   yum >= 3.2.24
 
 %build
 
-CFLAGS="$RPM_OPT_FLAGS" %{__python} setup.py build
+CFLAGS="$RPM_OPT_FLAGS" %{__python2} setup.py build
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %if 0%{?suse_version}
-%{__python} setup.py install --root=$RPM_BUILD_ROOT --prefix=%{_prefix}
+%{__python2} setup.py install --root=$RPM_BUILD_ROOT --prefix=%{_prefix}
 %else
-%{__python} setup.py install --root=$RPM_BUILD_ROOT -O1
+%{__python2} setup.py install --root=$RPM_BUILD_ROOT -O1
 %endif
 
 # install our mic.conf
@@ -98,7 +98,7 @@ install -m644 %{SOURCE1} %{buildroot}/%{_sysconfdir}/%{name}/%{name}.conf
 %doc README.rst
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
-%{python_sitelib}/*
+%{python2_sitelib}/*
 %dir %{_prefix}/lib/%{name}
 %dir %{_prefix}/lib/%{name}/plugins
 %dir %{_prefix}/lib/%{name}/plugins/*
